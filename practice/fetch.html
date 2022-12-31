@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch</title>
+</head>
+<body>
+  <!-- <script>
+    console.log("hellow world")
+
+    fetch("https://us1.locationiq.com/v1/reverse.php?key=pk.2ce05a50d1ca31e503b2a60e82d6a395&lat=34.0151&lon=71.5249&format=json")
+    .then((response)=>
+    response.json())
+    .then((data)=>console.log(data));
+  </script> -->
+
+  <!-- <script>
+    fetch("https://restcountries.com/")
+    .then((response)=>response.json)
+    .then((data)=> console.log(data));
+
+  </script> -->
+
+  <!-- <script>
+    fetch("https://us1.locationiq.com/v1/reverse.php?key=pk.2ce05a50d1ca31e503b2a60e82d6a395&lat=34.0151&lon=71.5249&format=json")
+    .then((response)=>response.json)
+    .then((data)=>console.log(data))
+  </script> -->
+
+
+<script>
+
+
+  // Fetch:
+  const loaddata = () =>{
+  
+    
+
+
+  fetch("https://api.github.com/users")
+  .then(resolve=>resolve.json())
+  .then(data=>{
+   // console.log(data)
+   const search = document.getElementById("search1").value
+   let rashid = `<table border="1" width="900">`
+    rashid += `<thead>
+      <tr>
+      <th>id</th>
+      <th>username</th>
+      <th>image</th>
+      <th>github</th>
+      </tr>
+    </thead>`
+      rashid += `<tbody>`
+data.forEach((v)=>{
+  
+if(v.id==search){
+
+        rashid += `<tr>
+          <td>${v.id}</td>
+          <td>${v.login}</td>
+          <td>${v.html_url}</td>
+          <td width="150" ><a href="${v.avatar_url}"><img width="150" src="${v.avatar_url}" /></a></td>
+
+        </tr>`
+      }
+      
+      })
+
+        rashid += `</tbody>`
+
+        rashid += `</table>`
+      
+
+        document.getElementById("div").innerHTML= rashid
+     
+
+  })
+}
+  
+  
+
+
+
+
+</script>
+<button onclick="loaddata()">Search</button>
+ <input type="number" onchange="loaddata()" id="search1" name="search"/>   
+<div id="div"></div>
+
+
+  <table>
+    <tr><td>Name</td></tr>
+    <tr><td>Tufail Zaman</td></tr>
+  </table>
+</body>
+</html>

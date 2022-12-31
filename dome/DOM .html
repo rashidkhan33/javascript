@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>.
+    
+</head>
+<body>
+
+    <!-- <button onclick = "btn()" > Click </button>
+    <input type="search" onChange = "input()"  />
+    <button onclick = "input()" > Search </button>
+    <input onChange = "inp()" id="search" name="search" type="search"/>
+    <button onmouseover = "admission()" > Search </button>
+    <button onmouseout = "admission()" > Search </button>
+    <button onmousemove = "admission()" > Search </button>
+    -->
+<!-- <div id = "div"></div> -->
+    <!-- 
+         Function of two types
+    1) Function Declaration
+    2) Arrow Function  ---  Best  
+
+-->
+
+
+
+<script>
+
+    // Function Declaration
+
+//    function btn(){
+//        prompt("bachsha hatarnak dee","Tufail Zaman")
+//        console.log("clicked")
+//        alert("bachsha hatarnak dee ")
+//    }
+
+//    // Arrow Function  Best way to use Arrow fuction
+
+//    const input = () => {
+     
+//          console.log("Tufail Zaman")
+
+//    }
+
+//      //// Block of code ot print a value in console, taken from infield
+
+//      const inp = () => {
+//        console.log(document.getElementById("search").value)
+//      }
+
+//      const admission = () => {
+//      let  addm = `<select>
+//                      <option>Software</option>
+//                      <option>cs</option>
+//                      <option>Maths</option>
+//      </select>`
+//         document
+//         .getElementById("div") 
+//         .innerHTML = addm
+//      }
+
+//   ///// Event Finish
+   
+//   /////// DOM Start
+const student = [
+{
+   id:1,
+   name:"rashid",
+   age:20,
+   gpa:3.4,
+   isPass:true
+},
+{
+   id:2,
+   name:"tufail",
+   age:22,
+   gpa:3.8,
+   isPass:true
+},
+{
+   id:3,
+   name:"hasin",
+   age:24,
+   gpa:2.4,
+   isPass:false
+},
+{
+    id:4,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ },
+ {
+    id:5,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ },
+ {
+    id:6,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ },
+ {
+    id:7,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ }
+ ,
+ {
+    id:8,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ },
+ {
+    id:9,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ },
+ {
+    id:10,
+    name:"asad",
+    age:20,
+    gpa:2.4,
+    isPass:true
+ }
+]
+// by id
+const load = () =>{
+
+
+    let table = `<table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>age</th>
+                <th>gpa</th>
+
+                </tr>
+                </thead>`
+                
+
+                table += `<tbody>`
+                    student.forEach((value)=>{
+                        table += `<tr>
+                            <td>${value.id}</td>
+                            <td>${value.name}</td>
+                            <td>${value.age}</td>
+                            <td>${value.gpa}</td>
+                        </tr>
+
+                    </tbody>`
+                })
+                table += `</table>`
+                document.getElementById("1").innerHTML = table
+
+                        
+
+}
+
+//const btn = () =>{
+//document
+//.getElementById("para")
+//.setAttribute("align","right")
+//
+
+// create element
+
+ //const h = document.createElement("h1")
+ //h.id = "abc"
+ //h.innerHTML = "this is a heading which is placed on div"
+
+ //const place = document.getElementById("div")
+ //place.appendChild(h)
+//}
+
+ const search = () => {
+  const search =  document.getElementById("number").value
+   let rashid =` <table border="1" width="400">`
+    student.forEach(v => {
+        if (v.id == search){
+    rashid += `<thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>gpa</th>
+            
+        </tr>
+    </thead>`
+
+    rashid += `<tbody>`
+        
+            
+
+        
+        rashid += `<tr>
+            <td>${v.name}</td>
+            <td>${v.age}</td>
+            <td>${v.gpa}</td>
+        </tr>`
+            }
+            })
+        rashid +=    `</tbody>`
+
+                    rashid += `</table>`
+
+document.getElementById("div").innerHTML = rashid
+ }
+
+
+const showdata = () => {
+    let data = `<table border="1" width="400" >`
+        data +=`=<thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>gpa</th>
+                <tr>
+                    <thead>`
+                      data +=  `<tbody>`
+                       student.forEach((value)=>{
+                        
+                        
+                       
+                        data += `<tr>
+                            <td>${value.name}</td>
+                            <td>${value.age}</td>
+                            <td>${value.gpa}</td>
+                        </tr>
+                    
+                    </tbody>`
+                })
+                    data += `</table>`
+        
+
+                    document.getElementById("div")
+                        .innerHTML=data
+                }
+
+const unorder = () =>{
+    let li = `<ol>`
+        student.forEach((v)=>{
+
+       
+         
+ li +=  `<li>${v.name}</li>
+        <li>${v.age}</li>
+        <li>${v.gpa}</li>
+        <li>${v.id}</li>`
+
+    })
+
+     li += `</ol>`
+        document.getElementById("div").innerHTML=li
+
+}
+
+
+const change = () => {
+    const search =  document.getElementById("number1").value
+     let rashid =` <table border="1" width="400">`
+      student.forEach(v => {
+          if (v.name == search){
+      rashid += `<thead>
+          <tr>
+              <th>name</th>
+              <th>age</th>
+              <th>gpa</th>
+              
+          </tr>
+      </thead>`
+  
+      rashid += `<tbody>`
+          
+              
+  
+          
+          rashid += `<tr>
+              <td>${v.name}</td>
+              <td>${v.age}</td>
+              <td>${v.gpa}</td>
+          </tr>`
+              }
+              })
+          rashid +=    `</tbody>`
+  
+                      rashid += `</table>`
+  
+  document.getElementById("div2").innerHTML = rashid
+   }
+  
+  
+
+
+
+
+
+    
+</script>
+
+<!-- <input type="search"  onChange="change()" id="number1"/>
+<button onclick="change()">Search</button>
+<div id = "div2"></div> -->
+
+<!-- <button onclick="unorder()">unorder</button> -->
+
+<!-- <button onclick="load()"> Click</button>
+<div id="1"></div>
+
+<button oncwlick="btn()">load</button>
+
+<p id="para" > this is rashid khan</p>
+
+<div id="div"></div> -->
+
+<!-- <button onclick="showdata()">showdata</button>
+<input onchange="search()" type="number" id="number" name="number" />
+<button onclick="search()"> search</button>
+
+<div id="div"></div> -->
+<!-- <div id="div"></div> -->
+
+
+
+
+
+</body>
+</html>
